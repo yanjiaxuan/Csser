@@ -29,11 +29,14 @@ body {
     width: 5vw;
     height: 5vh;
     background-attachment: fixed;
-    -webkit-background-attachment: fixed;
-    -ms-background-attachment: fixed;
-    -moz-background-attachment: fixed;
-    transform: scale(0) translateY(1000px);
+    background-repeat: no-repeat;
     animation: block-animation 0.5s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+    -webkit-animation: block-animation 0.5s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+    transform: scale(0) translateY(1000px);
+    -webkit-transform: scale(0) translateY(1000px);
+    -moz-transform: scale(0) translateY(1000px);
+    -ms-transform: scale(0) translateY(1000px);
+    -o-transform: scale(0) translateY(1000px);
 }
 
 .block.block-pc {
@@ -44,22 +47,29 @@ body {
 .block.block-mobile {
     background-image: url(../img/background-mobile.jpg);
     background-position: center;
-    background-size: 100% auto;
+    background-size: auto 100%;
 }
 
 .block:nth-child(even) {
     animation: block-animation 0.75s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+    -webkit-animation: block-animation 0.75s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
 }
 
 .block:nth-child(7n + 3) {
     animation: block-animation 1s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+    -webkit-animation: block-animation 1s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
 }
 .block:nth-child(7n + 7) {
     animation: block-animation 1.25s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+    -webkit-animation: block-animation 1.25s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
 }
 
 @keyframes block-animation {
     100% {
         transform: scale(1) translateY(0px);
-    }
+        -webkit-transform: scale(1) translateY(0px);
+        -moz-transform: scale(1) translateY(0px);
+        -ms-transform: scale(1) translateY(0px);
+        -o-transform: scale(1) translateY(0px);
+}
 }

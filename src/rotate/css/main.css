@@ -15,18 +15,22 @@ body section {
 }
 
 .rotate-wrapper {
+    position: relative;
     width: 250px;
     height: 250px;
     animation: rotate-wrapper-animation 1s linear 0s infinite;
+    -webkit-animation: rotate-wrapper-animation 1s linear 0s infinite;
 }
 
 @keyframes rotate-wrapper-animation {
     0% {
         filter: hue-rotate(0deg);
-    }
+        -webkit-filter: hue-rotate(0deg);
+}
     100% {
         filter: hue-rotate(360deg);
-    }
+        -webkit-filter: hue-rotate(360deg);
+}
 }
 
 .rotate-point {
@@ -39,7 +43,16 @@ body section {
     transform-origin: 0px;
     top: 50%;
     left: 50%;
-    animation: point-animation 1s linear calc(var(--i) * 0.05s) infinite; 
+    animation: point-animation 1s linear calc(var(--i) * 0.05s) infinite;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transform: scale(0) rotate(calc(var(--i) * 18deg));
+    -moz-transform: scale(0) rotate(calc(var(--i) * 18deg));
+    -ms-transform: scale(0) rotate(calc(var(--i) * 18deg));
+    -o-transform: scale(0) rotate(calc(var(--i) * 18deg));
+    -webkit-animation: point-animation 1s linear calc(var(--i) * 0.05s) infinite;
 } 
 
 @keyframes point-animation {
@@ -47,10 +60,18 @@ body section {
         transform: scale(0) rotate(calc(var(--i) * 18deg));
         transform-origin: 0px;
         left: 50%;
-    }
+        -webkit-transform: scale(0) rotate(calc(var(--i) * 18deg));
+        -moz-transform: scale(0) rotate(calc(var(--i) * 18deg));
+        -ms-transform: scale(0) rotate(calc(var(--i) * 18deg));
+        -o-transform: scale(0) rotate(calc(var(--i) * 18deg));
+}
     100% {
         transform: scale(1) rotate(calc(var(--i) * 18deg));
         transform-origin: 125px;
         left: 0px;
-    }
+        -webkit-transform: scale(1) rotate(calc(var(--i) * 18deg));
+        -moz-transform: scale(1) rotate(calc(var(--i) * 18deg));
+        -ms-transform: scale(1) rotate(calc(var(--i) * 18deg));
+        -o-transform: scale(1) rotate(calc(var(--i) * 18deg));
+}
 }

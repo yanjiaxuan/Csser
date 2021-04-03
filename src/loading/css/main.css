@@ -10,15 +10,18 @@ body section {
     align-items: center;
     min-height: calc(100vh);
     animation: section-animation 2s linear infinite alternate;
+    -webkit-animation: section-animation 2s linear infinite alternate;
 }
 
 @keyframes section-animation {
     0% {
         filter: hue-rotate(0deg);
-    }
+        -webkit-filter: hue-rotate(0deg);
+}
     50% {
         filter: hue-rotate(360deg);
-    }
+        -webkit-filter: hue-rotate(360deg);
+}
 }
 
 .loading-wrapper {
@@ -37,6 +40,15 @@ body section {
     transform: rotate(calc(var(--i) * 18deg));
     transform-origin: 125px;
     animation: block-animation 2s ease-in-out calc(0.05s * calc(var(--i))) infinite;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transform: rotate(calc(var(--i) * 18deg));
+    -moz-transform: rotate(calc(var(--i) * 18deg));
+    -ms-transform: rotate(calc(var(--i) * 18deg));
+    -o-transform: rotate(calc(var(--i) * 18deg));
+    -webkit-animation: block-animation 2s ease-in-out calc(0.05s * calc(var(--i))) infinite;
 }
 
 @keyframes block-animation {
@@ -62,6 +74,11 @@ body section {
     font-size: 2em;
     letter-spacing: 3.5px;
     animation: text-animation 2s linear infinite;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-animation: text-animation 2s linear infinite;
 }
 
 @keyframes text-animation {

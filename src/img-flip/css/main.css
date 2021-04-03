@@ -16,6 +16,10 @@ body {
     height:500px;
     perspective: 1000px;
     transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
 }
 
 .fliper {
@@ -26,15 +30,26 @@ body {
     transform-style: preserve-3d;
     position: relative;
     transform-origin: 0;
-    /* box-shadow: 5px 2px 5px 0px #ccc; */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
 }
 
 .flip-wrapper:hover {
     transform: translateX(150px);
+    -webkit-transform: translateX(150px);
+    -moz-transform: translateX(150px);
+    -ms-transform: translateX(150px);
+    -o-transform: translateX(150px);
 }
 
 .flip-wrapper:hover .fliper {
     transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
 }
 
 .front, .back {
@@ -44,8 +59,8 @@ body {
     width:300px;
     height:500px;
     text-align: center;
-
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .front {
@@ -56,12 +71,14 @@ body {
 
 .back {
     transform: rotateY(-180deg);
-
     background-image: url('./../img/back.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: -3px 3px 10px 2px #ccc;
-    
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
 }
 
 .base {
