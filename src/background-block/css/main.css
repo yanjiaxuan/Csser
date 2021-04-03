@@ -2,19 +2,19 @@
     margin: 0;
     padding: 0;
 }
-.title {
-    font-size: 5vw;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    line-height: 100vh;
-    letter-spacing: 10px;
-    background-color: cadetblue;
-    color: #fff;
-}
 
 body {
     overflow: hidden;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 5vw;
+    letter-spacing: 5px;
+    background-color: cadetblue;
+    color: #fff;
 }
 
 .block-wrapper {
@@ -25,42 +25,41 @@ body {
     flex-wrap: wrap;
 }
 
-.block-wrapper .block {
-    position: relative;
+.block {
     width: 5vw;
     height: 5vh;
-    animation: block-animation 0.3s ease-in-out forwards;
+    background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+    -ms-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    transform: scale(0) translateY(1000px);
+    animation: block-animation 0.5s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
 }
 
-.block-wrapper .block:nth-child(even) {
-    animation: block-animation 0.5s ease-in-out forwards;
+.block.block-pc {
+    background-image: url(../img/background-pc.jpg);
+    background-position: center;
+    background-size: 100% auto;
 }
-.block-wrapper .block:nth-child(7n + 3) {
-    animation: block-animation 1s ease-in-out forwards;
-}
-.block-wrapper .block:nth-child(7n+7) {
-    animation: block-animation 0.75s ease-in-out forwards;
+.block.block-mobile {
+    background-image: url(../img/background-mobile.jpg);
+    background-position: center;
+    background-size: 100% auto;
 }
 
+.block:nth-child(even) {
+    animation: block-animation 0.75s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+}
 
-
+.block:nth-child(7n + 3) {
+    animation: block-animation 1s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+}
+.block:nth-child(7n + 7) {
+    animation: block-animation 1.25s ease-in-out calc(0.05s * var(--i)) 1 normal forwards;
+}
 
 @keyframes block-animation {
-    0% {
-        opacity: 0;
-        transform: scale(0) translateY(1000px);
-    }
-    50% {
-        opacity: 1;
-        background: url(../img/background.jpg);
-        background-position: center;
-        background-attachment: fixed;
-    }
     100% {
-        opacity: 1;
         transform: scale(1) translateY(0px);
-        background: url(../img/background.jpg);
-        background-position: center;
-        background-attachment: fixed;
     }
 }
