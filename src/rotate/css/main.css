@@ -30,9 +30,11 @@ body section {
 
 @keyframes point-animation {
     0% {
-        border: 10px solid rgb(116, 114, 114);
+        transform: scale(0) rotate(calc(var(--i) * 18deg));
+        /* transform-origin: 125px; */
     }
     100% {
-        border: 0;
+        transform: scale(1) rotate(calc(var(--i) * 18deg));
+        /* transform-origin: 125px; */
     }
 }
