@@ -70,10 +70,12 @@
             transition: all 0.5s linear,
                         background-color 0.4s linear,
                         color 0.4s linear;
+            opacity: 1;
         }
         body .back:hover {
             background-color: rgb(32, 58, 58);
             color: darkturquoise;
+            opacity: 1 !important;
         }
         body .back.back-show {
             left: 0;
@@ -137,7 +139,11 @@
             frame.src = src;
             frame.className = 'frame frame-show';
             back.className = 'back back-show';
+            back.style.opacity = 1;
             index.className = 'flex-container flex-container-hidden';
+            setTimeout(() => {
+                back.style.opacity = 0.3;
+            }, 1500);
         }
 
         function handleBack() {
