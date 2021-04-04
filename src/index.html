@@ -136,8 +136,8 @@
         document.querySelector('.block-wrapper').addEventListener('mouseleave', e => resetScale());
 
         function handleClick(e) {
-            frame.src = '';
-            const src = e.getAttribute('src')
+            frame.contentDocument.body.innerHTML = '';
+            const src = e.getAttribute('src');
             frame.src = src;
             frame.className = 'frame frame-show';
             back.className = 'back back-show';
