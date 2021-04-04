@@ -2,73 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: rgb(32, 58, 58);
-        }
-        a {
-            text-decoration: none;
-            color: darkturquoise;
-        }
-        body > span {
-            border: 1px solid rgb(38, 197, 245);
-            border-radius: 5px;
-            padding: 5px;
-            position: absolute;
-            animation: span-animation 1s linear 0s infinite alternate;
-        }
-        @keyframes span-animation {
-            0% {
-                box-shadow: 0 0 15px 2px cornflowerblue;
-            }
-            100% {
-                box-shadow: none;
-            }
-        }
-    </style>
 </head>
 <body>
-    <span>
-        <a href="./src/loading/index.html">Loading</a>
-    </span>
-    <span>
-        <a href="./src/rotate/index.html">Rotate</a>
-    </span>
-    <span>
-        <a href="./src/img-flip/index.html">Img-Flip</a>
-    </span>
-    <span>
-        <a href="./src/background-block/index.html">Background-Block</a>
-    </span>
     <script>
-        const posArr = [];
-        const maxWidth = 100 + 20;
-        const maxHeight = 33 + 20;
-        const spans = document.querySelectorAll('body span');
-        const width = window.innerWidth - maxWidth;
-        const height = window.innerHeight - maxHeight;
-        for (let span of spans) {
-            let top = Math.random() * height;
-            let left = Math.random() * width;
-            for (let i = 0; i < posArr.length; i++) {
-                const pos = posArr[i];
-                if (Math.abs(left - pos[0]) < maxWidth || Math.abs(top - pos[1]) < maxHeight) {
-                    top = Math.random() * height;
-                    left = Math.random() * width;
-                    i = 0;
-                    continue;
-                }
-            }
-            posArr.push([left, top]);
-            span.style.top = top + 'px';
-            span.style.left = left + 'px';
-        }
+        window.location.replace('./src/index.html');
     </script>
 </body>
 </html>

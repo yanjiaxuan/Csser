@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(32, 58, 58);
+            overflow: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: darkturquoise;
+        }
+        .flex-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .block-wrapper .block {
+            position: relative;
+            display: inline-block;
+            font-size: calc(1rem * var(--scale));
+            transition: font-size 0.1s linear;
+            border-bottom: 2px solid rgb(42, 182, 238);
+            margin: 0px 10px;
+            transform: translateY(0px);
+        }
+
+        .block-wrapper .block:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="block-wrapper">
+            <div class="block" style="--scale: 1">
+                <a href="./loading/index.html">Loading</a>
+            </div>
+            <div class="block" style="--scale: 1">
+                <a href="./rotate/index.html">Rotate</a>
+            </div>
+            <div class="block" style="--scale: 1">
+                <a href="./img-flip/index.html">Img-Flip</a>
+            </div>
+            <div class="block" style="--scale: 1">
+                <a href="./background-block/index.html">Background-Block</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function resetScale() {
+            document.querySelectorAll('.block').forEach(block => {
+                block.style.setProperty('--scale', 1);
+            });
+        }
+        const defScale = 0.6;
+        document.querySelectorAll('.block').forEach(block => {
+            block.addEventListener('mousemove', e => {
+                const ele = e.target.className === 'block' ? e.target : e.target.parentElement;
+                ele.style.setProperty('--scale', 1.6);
+                const offset = e.x - ele.getBoundingClientRect().left
+                const width = ele.getBoundingClientRect().width
+                const prev = ele.previousElementSibling
+                const next = ele.nextElementSibling
+                
+                if (prev) {
+                    prev.style.setProperty('--scale', 1 + defScale * Math.abs(1 - offset / width));
+                }
+                if (next) {
+                    next.style.setProperty('--scale', 1 + defScale * offset / width);
+                }
+            })
+        });
+        document.querySelector('.block-wrapper').addEventListener('mouseleave', e => resetScale());
+    </script>
+</body>
+</html>
