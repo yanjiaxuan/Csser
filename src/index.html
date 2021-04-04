@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Csser</title>
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -102,7 +103,7 @@
             </div>
         </div>
     </div>
-    <iframe src="./loading/index.html" frameborder="0" class="frame frame-hidden"></iframe>
+    <iframe src="" frameborder="0" class="frame frame-hidden"></iframe>
     <div class="back back-hidden" onclick="handleBack()">< BACK</div>
     <script>
         const frame = document.querySelector('.frame');
@@ -135,6 +136,7 @@
         document.querySelector('.block-wrapper').addEventListener('mouseleave', e => resetScale());
 
         function handleClick(e) {
+            frame.src = '';
             const src = e.getAttribute('src')
             frame.src = src;
             frame.className = 'frame frame-show';
