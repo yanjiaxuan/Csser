@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Csser</title>
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+    <script src="stats.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -106,6 +107,15 @@
     <iframe src="" frameborder="0" class="frame frame-hidden"></iframe>
     <div class="back back-hidden" onclick="handleBack()">< BACK</div>
     <script>
+        var stats = new Stats();
+        stats.dom.style.left = '';
+        stats.dom.style.right = 0;
+        stats.dom.style.opacity = 0.5;
+        document.body.appendChild(stats.dom);
+        requestAnimationFrame(function loop() {
+            stats.update();
+            requestAnimationFrame(loop);
+        })
         const frame = document.querySelector('.frame');
         const index = document.querySelector('.flex-container');
         const back = document.querySelector('.back');
