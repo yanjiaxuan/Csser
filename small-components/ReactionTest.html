@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="反应速度测试">
+    <meta name="keywords" content="反应, 反应速度, 反应速度测试" >
+    <title>Reaction test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #fullScreen {
+            background-color: #fbdff9;
+            color: #000;
+            width: 100vw;
+            height: 100vh;
+            line-height: 100vh;
+            font-size: 2rem;
+            letter-spacing: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 50ms ease-out;
+        }
+        #textContent {
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullScreen">
+        <span id="textContent">
+            点击开始测试
+        </span>
+    </div>
+    <script>
+        const wrapper = document.getElementById("fullScreen");
+        const content = document.getElementById("textContent");
+        let timeoutId = undefined;
+        wrapper.readyState = 0;
+        wrapper.onclick = function() {
+            if (this.readyState === 0) {
+                content.textContent = "点击停止测试";
+                this.readyState = 1;
+                timeoutId = setTimeout(() => {
+                    this.timestamp = Date.now();
+                    this.style.backgroundColor = "#4cd6ff";
+                    this.style.color = "#fbdff9"
+                    this.readyState = 2;
+                }, 1000 + Math.random() * 5000);
+            } else if(this.readyState === 1) {
+                clearTimeout(timeoutId);
+                this.readyState = 0;
+                this.style.backgroundColor = "#fbdff9";
+                this.style.color = "#000"
+                content.textContent = "失败！提前点击！ 点击开始测试"
+            } else if (this.readyState === 2) {
+                this.readyState = 0;
+                this.style.backgroundColor = "#fbdff9";
+                this.style.color = "#000"
+                content.textContent = `反应速度为${Date.now() - this.timestamp}ms 点击重新开始测试`;
+            }
+        }
+    </script>
+</body>
+</html>
