@@ -17,9 +17,8 @@
             color: #000;
             width: 100vw;
             height: 100vh;
-            line-height: 100vh;
-            font-size: 2rem;
-            letter-spacing: 0.3rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -27,14 +26,13 @@
         }
         #textContent {
             user-select: none;
+            white-space: pre-line;
         }
     </style>
 </head>
 <body>
     <div id="fullScreen">
-        <span id="textContent">
-            点击开始测试
-        </span>
+        <span id="textContent">点击开始测试</span>
     </div>
     <script>
         const wrapper = document.getElementById("fullScreen");
@@ -56,12 +54,12 @@
                 this.readyState = 0;
                 this.style.backgroundColor = "#fbdff9";
                 this.style.color = "#000"
-                content.textContent = "失败！提前点击！ 点击开始测试"
+                content.textContent = "失败！提前点击！\r\n点击开始测试"
             } else if (this.readyState === 2) {
                 this.readyState = 0;
                 this.style.backgroundColor = "#fbdff9";
                 this.style.color = "#000"
-                content.textContent = `反应速度为${Date.now() - this.timestamp}ms 点击重新开始测试`;
+                content.textContent = `反应速度为${Date.now() - this.timestamp}ms\r\n点击重新开始测试`;
             }
         }
     </script>
